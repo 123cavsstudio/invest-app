@@ -6,6 +6,7 @@
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
+    "esModuleInterop": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
@@ -23,6 +24,14 @@
       "ES2022",
       "dom"
     ]
+  },
+  "paths": {
+    "@domain/*": ["src/domain/*"],
+    "@adapters/*": ["src/app/adapters/*"],
+    "@core/*": ["src/app/core/*"],
+    "@shared/*": ["src/app/shared/*"],
+    "@views/*": ["src/app/views/*"],
+    "@env/*": ["src/environments/*"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
