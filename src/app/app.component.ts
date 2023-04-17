@@ -11,12 +11,13 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent implements OnInit {
   
+  constructor(private readonly retrieveAccountsUseCase: RetrieveAccountsUseCase) {}
+
   title = 'invest-app';
   account$: Observable<Account[]> | undefined;
 
   ngOnInit(): void {
-    const useCase = new RetrieveAccountsUseCase(new AccountInMemoryApi());
-    this.account$ = useCase.execute();
+    this.account$ = this.retrieveAccountsUseCase.execute();
   }
 
 }
