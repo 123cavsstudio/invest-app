@@ -1,5 +1,5 @@
 import { AccountInMemoryApi } from '@adapters/account/in-memory/account.in-memory.api';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, isDevMode } from '@angular/core';
 import { Account } from '@domain/account/entitites/account';
 import { RetrieveAccountsUseCase } from '@domain/account/usecases/retrieve-accounts/retrieve-accounts.usecase';
 import { Observable } from 'rxjs';
@@ -18,6 +18,11 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.account$ = this.retrieveAccountsUseCase.execute();
+
+    if (isDevMode())
+      console.log('DEV MODE méné')
+    else
+      console.log('Man tu pars en mode PROD ?')
   }
 
 }
